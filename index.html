@@ -287,3 +287,21 @@ function reversestring(){
  call the function 
 reversestring('ravi');
 
+factorialize a number:
+----------------------
+To find the factorialize of a number we can do in two ways
+1> recursive method (i know this very well)
+2> function factorialize(num){
+	//if number is 0 then return 1
+	if(num === 0){
+		return 1;
+	}else{
+		for(var i=num-1; i>=1; i--){
+			num = num * i;
+		}
+		return num;
+	     }
+   }
+factorialize(5);
+
+

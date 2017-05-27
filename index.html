@@ -54,3 +54,227 @@ $(".target:odd").addClass("animated shake");
 
 jQuery can target the body element as well.
 Here's how we would make the entire body fade out: $("body").addClass("animated fadeOut");
+
+JavaScript
+-----------
+
+
+JavaScript provides seven different data types which are undefined, null, boolean, string, symbol, number, and object.
+
+You can find the length of a String value by writing .length after the string variable or string literal.
+"Alan Peter".length; // 10
+
+Bracket notation is a way to get a character at a specific index within a string.
+Most modern programming languages, like JavaScript, don't start counting at 1 like humans do.
+They start at 0. This is referred to as Zero-based indexing.
+For example, the character at index 0 in the word "Charles" is "C". So if var firstName = "Charles",
+you can get the value of the first letter of the string by using firstName[0].
+
+In JavaScript, String values are immutable, which means that they cannot be altered once created.
+For example, the following code:
+var myStr = "Bob";
+myStr[0] = "J";
+cannot change the value of myStr to "Job", because the contents of myStr cannot be altered. 
+Note that this does not mean that myStr cannot be changed, just that the individual characters of a string literal cannot be changed. The only way to change myStr would be to assign it with a new string, like this:
+var myStr = "Bob";
+myStr = "Job";
+
+You can also use bracket notation to get the character at other positions within a string.
+Remember that computers start counting at 0, so the first character is actually the zeroth character.
+
+You can use the same principle we just used to retrieve the last character in a string to retrieve the Nth-to-last character.
+For example, you can get the value of the third-to-last letter of the var firstName = "Charles" string by using firstName[firstName.length - 3]
+
+Unlike strings, the entries of arrays are mutable and can be changed freely.
+var ourArray = [3,2,1];
+ourArray[0] = 1; // equals [1,2,1]
+
+One way to think of a multi-dimensional array, is as an array of arrays.
+var arr = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+    [[10,11,12], 13, 14]
+];
+arr[3]; // equals [[10,11,12], 13, 14]
+arr[3][0]; // equals [10,11,12]
+arr[3][0][1]; // equals 11
+
+An easy way to append data to the end of an array is via the push() function.
+.push() takes one or more parameters and "pushes" them onto the end of the array.
+var arr = [1,2,3];
+arr.push(4);
+// arr is now [1,2,3,4]
+
+Another way to change the data in an array is with the .pop() function.
+.pop() is used to "pop" a value off of the end of an array. We can store this "popped off" value by assigning it to a variable.
+Any type of entry can be "popped" off of an array - numbers, strings, even nested arrays.
+For example, for the code
+var oneDown = [1, 4, 6].pop();
+the variable oneDown now holds the value 6 and the array becomes [1, 4].
+
+pop() always removes the last element of an array. What if you want to remove the first?
+That's where .shift() comes in. It works just like .pop(), except it removes the first element instead of the last.
+
+Not only can you shift elements off of the beginning of an array, you can also unshift elements to the beginning of an array i.e. add elements in front of the array.
+.unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
+
+Parameters are variables that act as placeholders for the values that are to be input to a function when it is called. When a function is defined, it is typically defined along with one or more parameters. The actual values that are input (or "passed") into a function when it is called are known as arguments.
+Here is a function with two parameters, param1 and param2:
+function testFun(param1, param2) {
+  console.log(param1, param2);
+}
+
+Sometimes you will need to test more than one thing at a time. 
+The logical and operator (&&) returns true if and only if the operands to the left and right of it are true.
+
+
+In JavaScript, scope refers to the visibility of variables. Variables which are defined outside of a function block have Global scope. This means, they can be seen everywhere in your JavaScript code.
+Variables which are used without the var keyword are automatically created in the global scope. This can create unintended consequences elsewhere in your code or when running a function again. You should always declare your variables with var.
+
+It is possible to have both local and global variables with the same name. When you do this, the local variable takes precedence over the global variable.
+In this example:
+var someVar = "Hat";
+function myFun() {
+  var someVar = "Head";
+  return someVar;
+}
+The function myFun will return "Head" because the local version of the variable is present.
+
+The logical or operator (||) returns true if either of the operands is true. Otherwise, it returns false.
+
+
+There are two ways to access the properties of an object: the dot operator (.) and bracket notation ([]), similar to an array.
+The dot operator is what you use when you know the name of the property you're trying to access ahead of time.
+Here is a sample of using the dot operator (.) to read an object property:
+var myObj = {
+  prop1: "val1",
+  prop2: "val2"
+};
+var prop1val = myObj.prop1; // val1
+var prop2val = myObj.prop2; // val2
+
+The second way to access the properties of an object is bracket notation ([]). If the property of the object you are trying to access has a space in it, you will need to use bracket notation.
+Here is a sample of using bracket notation to read an object property:
+var myObj = {
+  "Space Name": "Kirk",
+  "More Space": "Spock"
+};
+myObj["Space Name"]; // Kirk
+myObj['More Space']; // Spock
+Note that property names with spaces in them must be in quotes (single or double).
+
+After you've created a JavaScript object, you can update its properties at any time just like you would update any
+ other variable. You can use either dot or bracket notation to update.
+ourDog.name = "Happy Camper"; or
+ourDog["name"] = "Happy Camper";
+
+We can also delete properties from objects like this:
+delete ourDog.bark;
+
+Sometimes it is useful to check if the property of a given object exists or not. We can use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name. 
+.hasOwnProperty() returns true or false if the property is found or not.
+
+The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
+Here is a nested object:
+var ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": { 
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+ourStorage.cabinet["top drawer"].folder2;  // "secrets"
+ourStorage.desk.drawer; // "stapler"
+
+Random numbers are useful for creating random behavior.
+
+JavaScript has a Math.random() function that generates a random decimal number between 0 (inclusive) and not quite up to 1 (exclusive).
+Thus Math.random() can return a 0 but never quite return a 1
+
+For example, if we wanted to find the word the in the string The dog chased the cat, we could use the following regular expression: /the/gi
+Let's break this down a bit:
+/ is the start of the regular expression.
+the is the pattern we want to match.
+/ is the end of the regular expression.
+g means global, which causes the pattern to return all matches in the string, not just the first one.
+i means that we want to ignore the case (uppercase or lowercase) when searching for the pattern.
+
+We can use special selectors in Regular Expressions to select a particular type of value.
+One such selector is the digit selector \d which is used to retrieve one digit (e.g. numbers 0 to 9) in a string.
+In JavaScript, it is used like this: /\d/g.
+Appending a plus sign (+) after the selector, e.g. /\d+/g, allows this regular expression to match one or more digits.
+The trailing g is short for 'global', which allows this regular expression to find all matches rather than stop at the first match.
+
+We can also use regular expression selectors like \s to find whitespace in a string.
+The whitespace characters are " " (space), \r (the carriage return), \n (newline), \t (tab), and \f (the form feed).
+The whitespace regular expression looks like this:
+/\s+/g
+
+You can invert any match by using the uppercase version of the regular expression selector.
+For example, \s will match any whitespace, and \S will match anything that isn't whitespace.
+
+The map method is a convenient way to iterate through arrays. Here's an example usage:
+var oldArray = [1, 2, 3];
+var timesFour = oldArray.map(function(val){
+  return val * 4;
+});
+console.log(timesFour); // returns [4, 8, 12]
+console.log(oldArray);  // returns [1, 2, 3]
+
+The array method reduce is used to iterate through an array and condense it into one value.
+To use reduce you pass in a callback whose arguments are an accumulator (in this case, previousVal) and the current value (currentVal).
+The accumulator is like a total that reduce keeps track of after each operation. The current value is just the next element in the array you're iterating through.
+reduce has an optional second argument which can be used to set the initial value of the accumulator. If no initial value is specified it will be the first array element and currentVal will start with the second array element.
+Here is an example of reduce being used to subtract all the values of an array:
+var singleVal = array.reduce(function(previousVal, currentVal) {
+  return previousVal - currentVal;
+}, 0);
+
+The filter method is used to iterate through an array and filter out elements where a given condition is not true.
+filter is passed a callback function which takes the current value (we've called that val) as an argument.
+Any array element for which the callback returns true will be kept and elements that return false will be filtered out.
+The following code is an example of using filter to remove array elements that are equal to five:
+Note: We omit the second and third arguments since we only need the value
+array = array.filter(function(val) {
+  return val !== 5;
+});
+
+You can use the method sort to easily sort the values in an array alphabetically or numerically.
+Unlike the previous array methods we have been looking at, sort actually alters the array in place. However, it also returns this sorted array.
+sort can be passed a compare function as a callback. The compare function should return a negative number if a should be before b, a positive number if a should be after b, or 0 if they are equal.
+If no compare (callback) function is passed in, it will convert the values to strings and sort alphabetically.
+Here is an example of using sort with a compare function that will sort the elements from smallest to largest number:
+var array = [1, 12, 21, 2];
+array.sort(function(a, b) {
+  return a - b;
+});
+
+You can use the reverse method to reverse the elements of an array.
+reverse is another array method that alters the array in place, but it also returns the reversed array.
+var myArray = [1, 2, 3];
+myArray.reverse();
+returns [3, 2, 1]
+
+concat can be used to merge the contents of two arrays into one.
+concat takes an array as an argument and returns a new array with the elements of this array concatenated onto the end.
+Here is an example of concat being used to concatenate otherArray onto the end of oldArray:
+newArray = oldArray.concat(otherArray);
+Use .concat() to concatenate concatMe onto the end of oldArray and assign it to newArray.
+
+You can use the split method to split a string into an array.
+split uses the argument you pass in as a delimiter to determine which points the string should be split at.
+Here is an example of split being used to split a string at every s character:
+var array = string.split('s');
+
+We can use the join method to join each element of an array into a string separated by whatever delimiter you provide as an argument.
+The following is an example of using join to join all of the elements of an array into a string with all the elements separated by word and:
+var veggies = ["Celery", "Radish", "Carrot", "Potato"];
+var salad = veggies.join(" and ");
+console.log(salad); // "Celery and Radish and Carrot and Potato"
+

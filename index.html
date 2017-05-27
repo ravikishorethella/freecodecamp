@@ -10,3 +10,47 @@ for text or spans: "text-danger text-primary text-center"
 for input in the form: class="form-control"
 
 There is a "well" class
+
+jQuery
+-------
+$ sign is also called as bling 
+use $("") instead of $('') in jquery [ $("button").addClass("animated bounce") ]
+("animated shake") ("animated fadeOut") ("animated hinge")
+
+jQuery has a css() function
+
+jQuery has a function called .prop() that allows you to adjust the properties of elements.
+Here's how you would disable all buttons:
+$("button").prop("disabled", true);
+
+jQuery has a function called .html() that lets you add HTML tags and text within an element. 
+Any content previously within the element will be completely replaced with the content you provide using this function.
+
+jQuery also has a similar function called .text() that only alters text without adding tags.
+In other words, this function will not evaluate any HTML tags passed to it, but will instead treat it as the text you want to replace the existing content with.
+
+jQuery has a function called .remove() that will remove an HTML element entirely
+
+jQuery has a function called appendTo() that allows you to select HTML elements and append them to another element.
+
+jQuery has a function called clone() that makes a copy of an element.
+For example, if we wanted to copy target2 from our left-well to our right-well, we would use:
+$("#target2").clone().appendTo("#right-well");
+
+jQuery has a function called parent() that allows you to access the parent of whichever element you've selected.
+Here's an example of how you would use the parent() function if you wanted to give the parent element of the left-well element a background color of blue:
+$("#left-well").parent().css("background-color", "blue")
+
+jQuery has a function called children() that allows you to access the children of whichever element you've selected.
+Here's an example of how you would use the children() function to give the children of your left-well element the color of blue:
+$("#left-well").children().css("color", "blue")
+
+jQuery uses CSS Selectors to target elements. target:nth-child(n) css selector allows you to select all the nth elements with the target class or element type.
+Here's how you would give the third element in each well the bounce class:
+$(".target:nth-child(3)").addClass("animated bounce");
+
+Here's how you would target all the odd-numbered elements with class target and give them classes:
+$(".target:odd").addClass("animated shake");
+
+jQuery can target the body element as well.
+Here's how we would make the entire body fade out: $("body").addClass("animated fadeOut");

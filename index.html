@@ -304,4 +304,45 @@ To find the factorialize of a number we can do in two ways
    }
 factorialize(5);
 
+Palindrome:
+-----------
+	To remove all the alpha numeric characters we need to include some code
+We finally have “/[\W_]/g”
+for ex: str.replace(/[^0-9a-z]/gi, '') this removes all the unwanted characters including spaces
+to convert the string to lowercase we need to use a function .toLowerCase()
+
+There are two ways to solve this
+
+1> function palindrome(str) {
+  // Good luck!
+  
+  // we need to remove the alphanumeric characters
+  var re = /[\W_]/g;
+  // convert the string to lowercase letters
+  var newstr = str.replace(re,'').toLowerCase();
+  
+  //reverse the split the string, reverse the string and join the string 
+  var finalstr = newstr.split('').reverse().join('');
+  return newstr === finalstr;
+}
+
+palindrome("eye");
+
+2>
+function pal(str){
+	var re = /[\W_]/g;
+	// convert the string to lowercase
+	str = str.replace(re,'').toLowerCase();
+	// now finding the length of the string
+	var len = str.length;
+	// iterating over the loop
+	for(var i=0; i<len/2; i++){
+		if(str[i] !== str[len-1-i]){
+			return false; 
+		}
+
+	}	
+	return true;
+}
+
 

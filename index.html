@@ -345,4 +345,44 @@ function pal(str){
 	return true;
 }
 
+Find the longest word in the string:
+-----------------------------------
+This can be solved in 3 ways
+1> 
+function findLongestWord(str) {
+  var newarray = str.split(" ");
+ // finding the length of the new array 
+  var len = newarray.length;  
+  // the maximum value of the string inside the array
+   var max = 0;
+  // iterating over the array
+  for(var i=0; i<len; i++){
+   
+    if (newarray[i].length>max){
+      max = newarray[i].length;
+    }
+    
+  }
+  
+  return max;
+}
+
+findLongestWord("The quick brown fox jumped over the lazy dog");
+
+
+2>
+ function findLongestWord(str) {
+  var longestWord = str.split(' ').sort(function(a, b) { return b.length - a.length; });
+  return longestWord[0].length;
+}
+findLongestWord("The quick brown fox jumped over the lazy dog");
+
+3> function findLongestWord(str) {
+  var longestWord = str.split(' ').reduce(function(longest, currentWord) {
+    return currentWord.length > longest.length ? currentWord : longest;
+  }, "");
+  return longestWord.length;
+}
+findLongestWord("The quick brown fox jumped over the lazy dog");
+
 

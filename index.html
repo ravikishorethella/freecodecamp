@@ -385,4 +385,25 @@ findLongestWord("The quick brown fox jumped over the lazy dog");
 }
 findLongestWord("The quick brown fox jumped over the lazy dog");
 
+TitleCase
+----------
+
+function titleCase(str) {
+  
+  // spliting the string and storing that in newarray
+  var newarray = str.toLowerCase().split(" ");
+  // final array to store the result
+  var finalarray = [];
+  // find the length of newarray
+  var len = newarray.length;
+  // iterating iver thearray elements
+   for (var i =0; i<len; i++){
+       finalarray.push(newarray[i].charAt(0).toUpperCase()+newarray[i].slice(1));
+  }
+  
+  return finalarray.join(' ');
+}
+
+titleCase("sHoRt AnD sToUt");
+
 

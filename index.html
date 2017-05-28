@@ -406,4 +406,28 @@ function titleCase(str) {
 
 titleCase("sHoRt AnD sToUt");
 
+Return largest numbers in array
+-------------------------------
+function largestOfFour(arr) {
+  // You can do this!
+  // creating a array to store the end result
+  var result = [];
+  // finding the length of the arr
+  var length = arr.length;
+  // iterating over the main array using the loops
+  for(var i=0; i<length; i++){
+    // create a largest number 
+    var largestnumber = arr[i][0];
+    // inner arrays
+    for(var j=1; j<arr[i].length; j++){
+      if(arr[i][j] > largestnumber){
+        largestnumber = arr[i][j];
+      }
+    }
+    result[i] = largestnumber;
+  }
+  return result;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
 

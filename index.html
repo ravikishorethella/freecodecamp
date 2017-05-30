@@ -475,6 +475,24 @@ function truncateString(str, num) {
 
 truncateString("A-tisket a-tasket A green and yellow basket", 11); 
 
+Chunky Monkey
+--------------
+function chunkArrayInGroups(arr, size) {
+  // Break it up.
+  //creating an array to store the final result
+  var final = [];
+  // length of the array 
+  var length = arr.length;
+  // using the for loop
+  for(var i=0; i<length;i+=size){
+    final.push(arr.slice(i,i+size));
+  }
+  return final;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+
 
 
 Convert JSON data to html

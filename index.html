@@ -595,6 +595,34 @@ function rot13(str) {
 // Change the inputs below to test
 rot13("SERR PBQR PNZC");
 
+Sum all numbers in range
+------------------------
+function sumAll(arr){
+  // find the first element in the array
+  var a = arr[0];
+  // find the last element or the second element(in our problem) in the array
+  var b = arr[1];
+  // final is to store the values which are in between the a and b
+  var final=[];
+  // to find the maximum value among a, b
+  var max = Math.max(a,b);
+  // to find the min value among a, b
+  var min = Math.min(a,b);
+  // starting the loop from the min value to max value
+  for(i=min; i<=max; i++){
+    final.push(i);
+  }
+  
+  // to add the sum of all the elements in the final array 
+  var sum = final.reduce(function (x, y) {
+  return x + y;
+  }, 0);   
+  
+  return sum;
+}
+
+sumAll([10, 5]);
+
 
 
 

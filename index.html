@@ -339,7 +339,23 @@ There are two ways to solve this
 
 palindrome("eye");
 
-2>
+2> updated method:
+-----------------
+function palindrome(str) {
+
+  var newString = str.toLowerCase();
+  var nac = /[\W_]/g;
+  newString = newString.replace(nac,''); 
+  var finalOutput = newString.split('').reverse().join('');
+  if(finalOutput === newString){
+    return true;
+  }return false; 
+}
+palindrome("_eye");
+
+
+
+3>
 function pal(str){
 	var re = /[\W_]/g;
 	// convert the string to lowercase

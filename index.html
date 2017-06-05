@@ -449,6 +449,17 @@ function titleCase(str) {
 
 titleCase("sHoRt AnD sToUt");
 
+updated method:
+---------------
+function titleCase(str) {
+  
+// we need to change the case to LowerCase and then split the array and change the first character to the uppercase and add the remaining text to that first word and join them
+return str.toLowerCase().split(' ').map(function(e){return e[0].toUpperCase()+e.slice(1)}).join(' ');
+}
+
+titleCase("I'm a little tea pot");
+
+ 
 Return largest numbers in array
 -------------------------------
 function largestOfFour(arr) {

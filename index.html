@@ -412,6 +412,22 @@ findLongestWord("The quick brown fox jumped over the lazy dog");
 }
 findLongestWord("The quick brown fox jumped over the lazy dog");
 
+
+updated solution using the sort() method
+----------------------------------------
+ function findLongestWord(str) {
+  // using the sort method
+  // first split the array
+  var final = str.split(' ').sort(function(param1, param2){
+    return param2.length - param1.length;
+  });
+   return final[0].length;
+}
+
+findLongestWord("The quick brown fox jumped over the lazy dog");
+ 
+
+ 
 TitleCase
 ----------
 

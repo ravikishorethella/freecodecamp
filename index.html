@@ -623,6 +623,26 @@ function sumAll(arr){
 
 sumAll([10, 5]);
 
+Diff two Arrays
+---------------
+function diffArray(arr1, arr2) {
+  
+  //first concat the two arrays
+  var newArr = [];  
+
+  newArr = arr1.concat(arr2);
+
+  newArr = newArr.filter(function(e)
+                       {
+  return newArr.lastIndexOf(e) == newArr.indexOf(e);
+});
+ 
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+
 
 
 

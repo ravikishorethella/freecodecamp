@@ -841,6 +841,86 @@ body{
   font-size: 14px;
 }
 
+js section:
+-----------
+$(document).ready(function(){  
+//   the syntax code is from fcc challenge Get Geolocation data
+  if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    // finding the latitude and longitude
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    
+    $.ajax({
+      url: "https://api.wunderground.com/api/ea9143466574a9dd/geolookup/conditions/forecast/q/" + latitude + "," + longitude + ".json",
 
+			dataType: "jsonp",
+      success: function(data){
+        console.log(data);
+        console.log(data.forecast.simpleforecast.forecastday);
+        
+        //defining the location
+        var city = data.location.city + ", " + data.location.country;
+        
+        // day's temp in celsius and farhenheit
+        var tempC = data.current_observation.temp_c;
+				var tempF = data.current_observation.temp_f;
+        
+        var weather = data.forecast.simpleforecast.forecastday;
+        var weathers = [ {conditions: weather[0].conditions}];
+ 					weathers.forEach(function(weather, i) {						
+ 					  	var weathercondition = weather.conditions;
+ 					  	var lowC = data.forecast.simpleforecast.forecastday[i].low.celsius;
+              var lowF = data.forecast.simpleforecast.forecastday[i].low.fahrenheit;
+ 					  	var highC = data.forecast.simpleforecast.forecastday[i].high.celsius; 					  	
+ 					  	var highF = data.forecast.simpleforecast.forecastday[i].high.fahrenheit;
+            
+            // for displaying the weather icon based on the weather type
+            switch (weathercondition) {
+ 								case "Clear": case "Sunny":
+ 									$("#icon").addClass ("wi wi-day-sunny");
+ 									break;
+ 								case "Mostly Sunny": case "Mostly Clear": case "Partly Sunny": case "Partly Cloudy":
+ 									$("#icon").addClass ("wi wi-day-cloudy");
+ 									break;
+ 								case "Mostly Cloudy": case "Overcast": case "Scattered Clouds":
+ 									$("#icon").addClass ("wi wi-cloudy");
+ 									break;
+ 								case "Fog":
+ 									$("#icon").addClass ("wi wi-day-fog");
+ 									break;
+ 								case "Rain": case "Light Rain Showers":
+ 									$("#icon").addClass ("wi wi-day-rain");
+ 									break;
+ 								case "Snow":
+ 									$("#icon").addClass ("wi wi-day-snow");
+ 									break;
+ 								case "Chance of Rain":
+ 									$("#icon").addClass ("wi wi-day-showers");
+ 							}
+            
+            // the temperature of the city and the day min and day max
+            $("#temp").html(tempF + "&deg;");
+            $("#mm").html (lowF + "&deg; / " + highF + "&deg;");
+            
+            // targeting the radio button
+             $("input:radio[name=\"result\"]").change(function(){
+ 								if ($(this).val() == "fah"){
+ 									$("#temp").html (tempF + "&deg;");
+ 						  			$("#mm").html (lowF + "&deg; / " + highF + "&deg;");
+ 								}
+ 								else if ($(this).val() == "cel") {
+ 						  			$("#temp").html (tempC + "&deg;");
+ 						  			$("#mm").html (lowC + "&deg; / " + highC + "&deg;");
+ 								}
+ 					 		});
+          
+          });
+        $("#location").html(city);
+      } 
+    });    
+  });
+}
+});
 
 

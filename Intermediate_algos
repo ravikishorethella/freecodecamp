@@ -20,3 +20,28 @@ convertToRoman(36);
 
 Wherefore art thou
 ------------------
+
+Sum All Prime numbers
+---------------------
+function sumPrimes(num) {
+  var result = 0;
+  for(var i = num; i>=2; i--){
+    if(isPrime(i)){
+      result = result + i;
+    }
+    else{
+      continue;
+    }
+  }
+  return result;
+}
+
+function isPrime(num) {
+    var start = 2;
+    while (start <= Math.sqrt(num)) {
+        if (num % start++ < 1) return false;
+    }
+    return num > 1;
+}
+
+sumPrimes(10);

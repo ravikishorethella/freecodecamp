@@ -1,3 +1,4 @@
+------------------------
 Roman-Number Converter
 ------------------------
 
@@ -17,10 +18,12 @@ function convertToRoman(num) {
 
 convertToRoman(36);
 
-
+------------------
 Wherefore art thou
 ------------------
 
+
+----------------------
 Sum All Prime numbers
 ---------------------
 function sumPrimes(num) {
@@ -45,3 +48,22 @@ function isPrime(num) {
 }
 
 sumPrimes(10);
+
+
+--------------------
+Search and Replace
+--------------------
+
+function myReplace(str, before, after) {
+  // finding the index of the before in the string
+  var index = str.indexOf(before);
+  
+  // we want to capitalize the word so, check whether the first character is in upper case or not
+  if(str[index] === str[index].toUpperCase()){
+    after = after.charAt(0).toUpperCase() + after.slice(1);
+  }
+  str = str.replace(before,after);
+  return str;
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");

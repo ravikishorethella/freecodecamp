@@ -1,7 +1,6 @@
 ------------------------
 Roman-Number Converter
 ------------------------
-
 function convertToRoman(num) {
   var output = '';
   var numerals = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
@@ -17,6 +16,7 @@ function convertToRoman(num) {
 }
 
 convertToRoman(36);
+
 
 ------------------
 Wherefore art thou
@@ -85,3 +85,10 @@ function fearNotLetter(str) {
 fearNotLetter("abce");
 
 
+--------
+Boo Who
+--------
+function booWho(bool){
+  return typeof(bool)==='boolean';
+}
+booWho('true');

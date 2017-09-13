@@ -92,3 +92,19 @@ function booWho(bool){
   return typeof(bool)==='boolean';
 }
 booWho('true');
+
+
+----------------------
+convert HTML entities
+----------------------
+function convertHTML(str) {
+  // &colon;&rpar;
+  var final = str.replace(/&/g, '&amp;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&apos;')
+  .replace(/>/g, '&gt;')
+  .replace(/</g, '&lt;');
+  return final;
+}
+
+convertHTML("Dolce & Gabbana");

@@ -120,3 +120,16 @@ function truthCheck(collection, pre) {
 
 truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
 
+
+------------
+spinal case
+------------
+
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  return str.split(/\s|_|(?=[A-Z])/g).join('-').toLowerCase();
+}
+spinalCase('This Is Spinal Tap');
+
+

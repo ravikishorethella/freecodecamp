@@ -133,3 +133,22 @@ function spinalCase(str) {
 spinalCase('This Is Spinal Tap');
 
 
+--------------------------------
+sum of all odd fibonacci numbers
+---------------------------------
+function sumFibs(num) {
+  var previousNum, currentNum, result;
+  previousNum = 0;
+  currentNum = 1;
+  result = 0;
+  while(currentNum <= num){
+    if(currentNum%2!==0){
+      result = result + currentNum;
+    }
+    currentNum = currentNum + previousNum;
+    previousNum = currentNum - previousNum;
+  }
+  return result;
+}
+sumFibs(6);
+

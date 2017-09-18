@@ -152,3 +152,21 @@ function sumFibs(num) {
 }
 sumFibs(6);
 
+--------
+Drop it
+--------
+function dropElements(arr, func) {
+  // Drop them elements.
+  var len = arr.length;
+  for(var i=0; i<len; i++){
+    if(func(arr[0])){
+      break;
+    }else{
+      arr.shift();
+    }
+  }
+  return arr;
+}
+
+dropElements([1, 2, 3, 4], function(n) {return n > 5; });
+

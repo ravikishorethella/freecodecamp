@@ -227,3 +227,25 @@ function uniteUnique(arr) {
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 
+
+----------
+Pig Latin
+----------
+function translatePigLatin(str){
+  var vowels = ['a','e','i','o','u'];
+  var position = 0;
+  if(vowels.indexOf(str[position]) !== -1){
+    return str + 'way';
+  }
+  for(position=1; position<str.length; position++){
+    if(vowels.indexOf(str[position]) !== -1){
+      break;
+    }
+  }
+  return str.slice(position,str.length) + str.slice(0, position) + 'ay';
+}
+translatePigLatin('glove');
+
+
+
+

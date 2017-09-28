@@ -261,3 +261,26 @@ function pairElement(str) {
 pairElement("GCG");
 
 
+------------
+Steamroller
+------------
+
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+  while(arr.findIndex(Array.isArray)>-1){
+    var x=arr.shift();
+    if(Array.isArray(x)){
+      arr=arr.concat(x);
+    }else{
+      arr.push(x);
+    }    
+  }
+  return arr;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
+
+
+
+
+
